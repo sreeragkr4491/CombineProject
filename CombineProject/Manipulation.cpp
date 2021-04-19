@@ -64,6 +64,10 @@ void Manipulation::play()
 			{
 				genBullet();
 			}
+			if (ch == 'q' || ch == 'Q')
+			{
+				play();
+			}
 			if (ch == 27)
 			{
 				break;

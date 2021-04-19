@@ -10,7 +10,7 @@ public:
 	void gameOver();
 	void updateScore();
 	void instructions();
-	int hitBullet();
+	//int hitBullet();
 	void lvl2();
 };
 

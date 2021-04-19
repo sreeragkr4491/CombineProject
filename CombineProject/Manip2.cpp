@@ -80,11 +80,14 @@ void Manip2::play()
 
 			return;
 		}
-		if (hitBullet() == 1) {
-			score++;
-			updateScore();
-			if (score == 20)
-				lvl2();
+		for (int i = 0; i <= 4; i++)
+		{
+			if (enemyFlag[i] == SCREEN_HEIGHT) {
+				score++;
+				updateScore();
+				if (score == 20)
+					lvl2();
+			}
 		}
 
 		Sleep(100);
@@ -136,6 +139,7 @@ void Manip2::gameOver()
 
 void Manip2::updateScore()
 {
+	
 	e.getPosi(WIN_WIDTH + 7, 5); cout << "Score: " << score << endl;
 
 }
@@ -149,34 +153,34 @@ void Manip2::instructions()
 	cout << "\n\nPress any key to go back to menu";
 	_getch();
 }
-
-int Manip2::hitBullet()
-{
-
-	for (int i = 0; i < 20; i++) {
-		for (int j = 0; j < 4; j += 2) {
-			if (bullets[i][j] != 0) {
-				if (bullets[i][j] >= enemyY[0] && bullets[i][j] <= enemyY[0] + 4) {
-					if (bullets[i][j + 1] >= enemyX[0] && bullets[i][j + 1] <= enemyX[0] + 4) {
-						eraseBullet(i);
-						bullets[i][j] = 0;
-						resetEnemy(0);
-						return 1;
-					}
-				}
-				if (bullets[i][j] >= enemyY[1] && bullets[i][j] <= enemyY[1] + 4) {
-					if (bullets[i][j + 1] >= enemyX[1] && bullets[i][j + 1] <= enemyX[1] + 4) {
-						eraseBullet(i);
-						resetEnemy(1);
-						bullets[i][j] = 0;
-						return 1;
-					}
-				}
-			}
-		}
-	}
-	return 0;
-}
+//
+//int Manip2::hitBullet()
+//{
+//
+//	for (int i = 0; i < 20; i++) {
+//		for (int j = 0; j < 4; j += 2) {
+//			if (bullets[i][j] != 0) {
+//				if (bullets[i][j] >= enemyY[0] && bullets[i][j] <= enemyY[0] + 4) {
+//					if (bullets[i][j + 1] >= enemyX[0] && bullets[i][j + 1] <= enemyX[0] + 4) {
+//						eraseBullet(i);
+//						bullets[i][j] = 0;
+//						resetEnemy(0);
+//						return 1;
+//					}
+//				}
+//				if (bullets[i][j] >= enemyY[1] && bullets[i][j] <= enemyY[1] + 4) {
+//					if (bullets[i][j + 1] >= enemyX[1] && bullets[i][j + 1] <= enemyX[1] + 4) {
+//						eraseBullet(i);
+//						resetEnemy(1);
+//						bullets[i][j] = 0;
+//						return 1;
+//					}
+//				}
+//			}
+//		}
+//	}
+//	return 0;
+//}
 
 void Manip2::lvl2()
 {

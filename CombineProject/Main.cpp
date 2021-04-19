@@ -16,6 +16,7 @@ int ch;
 
 void main()
 {
+loop:system("cls");
 	cout << "-----------------------------------------------------------\n" << endl;
 	cout << "***************WELCOME TO THE FLASH GAMES******************\n" << endl;
 	cout << "-----------------------------------------------------------\n" << endl;
@@ -60,7 +61,7 @@ void main()
 		else if (g.ch == 3)
 		{
 			cout << "Your score=" << g.score << endl;
-			_getch();
+			goto loop;
 		}
 		//return 0;
 
@@ -82,7 +83,7 @@ void main()
 
 			if (op == '1') m.play();
 			else if (op == '2') m.instructions();
-			else if (op == '3') _getch();
+			else if (op == '3') goto loop;
 
 		} while (1);
 
@@ -106,7 +107,7 @@ void main()
 
 			if (op == '1') m1.play();
 			else if (op == '2') m1.instructions();
-			else if (op == '3') _getch();
+			else if (op == '3') goto loop;
 
 		} while (1);
 
@@ -141,7 +142,7 @@ void main()
 
 		else if (choice == 3)
 		{
-			_getch();
+			goto loop;
 		}
 
 		else
@@ -216,7 +217,7 @@ void main()
 		}
 		if (choice == 3)
 		{
-			_getch();
+			goto loop;
 		}
 		//return 0;
 
